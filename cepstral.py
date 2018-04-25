@@ -6,7 +6,8 @@ import numpy as np
 chunk = 2048
 l=[]
 
-wf = wave.open("WAV's/Camila_Cabello-Havana.wav", 'rb')
+wf = wave.open("wav/Camila_Cabello-Havana.wav", 'rb')
+wf2 = wave.open("wav/Camila_Cabello-Havana.wav", 'wb')
 #wf = wave.open("recorded_audio.wav", 'rb')
 swidth = wf.getsampwidth()
 RATE = wf.getframerate()
