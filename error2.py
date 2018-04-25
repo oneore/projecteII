@@ -1,8 +1,7 @@
-lista_canciones = ['Amelie.txt','chopin_nocturne92.txt'] #nuestra lista de canciones
+lista_canciones = ['Amelie_Le_moulin.txt'] #nuestra lista de canciones
 f1 = open('record.txt','r')
 record = f1.read().split('\n')[:-1]
 adivinanza = ''
-
 def er(record, cancion):
     if len(record) < len(cancion):
         lon = len(record)

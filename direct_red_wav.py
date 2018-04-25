@@ -20,8 +20,10 @@ for i in range(0, nchunks):
     chunk = 2048
     data = wf.readframes(chunk)
     window = np.blackman(chunk)
-    indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),\
-                                         data))*window
+    print(data)
+    print(window)
+    print(swidth)
+    indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),data))*window
     # S'agafen els valors de la FFT i s'eleven al quadrat
     fftData=abs(np.fft.rfft(indata))**2
     # es troba el màxim

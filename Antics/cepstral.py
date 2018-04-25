@@ -5,9 +5,8 @@ import numpy as np
 
 chunk = 2048
 l=[]
-
-wf = wave.open("WAV's/Camila_Cabello-Havana.wav", 'rb')
-#wf = wave.open("recorded_audio.wav", 'rb')
+# open up a wave
+wf = wave.open('recorded_audio.wav', 'rb')
 swidth = wf.getsampwidth()
 RATE = wf.getframerate()
 # use a Blackman window
@@ -25,7 +24,7 @@ data = wf.readframes(chunk)
 # play stream and find the frequency of each chunk
 while len(data) == chunk*swidth:
     # write data out to the audio stream
-    stream.write(data)
+    #stream.write(data)
     # unpack the data and times by the hamming window
     indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),\
                                          data))*window
@@ -34,11 +33,9 @@ while len(data) == chunk*swidth:
     # find the maximum
     which = fftData[1:].argmax() + 1
     # use quadratic interpolation around the max
-    print('1')
     if which != len(fftData)-1:
         y0,y1,y2 = np.log(fftData[which-1:which+2:])
         x1 = (y2 - y0) * .5 / (2 * y1 - y2 - y0)
-        print("1")
         # find the frequency and output it
         thefreq = (which+x1)*RATE/chunk
         l.append(thefreq)
@@ -54,4 +51,13 @@ if data:
 stream.close()
 p.terminate()
 
-print(l)
+cont, sum = 0, 0
+for i in l:
+    sum+= i
+    cont+=1
+    a= sum/cont
+
+#print ('La freqüència és de %f Hz.' % (a))
+
+def llista():
+    return l

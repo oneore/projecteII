@@ -25,10 +25,20 @@ stream = p.open(format=FORMAT,
                 rate=FRAME_RATE,
                 input=True,
                 frames_per_buffer=FRAMES_PERBUFF) #buffer
+frames = []
+RECORD_SECONDS = 3
+nchunks = int(RECORD_SECONDS * FRAME_RATE / FRAMES_PERBUFF)
+for i in range(0, nchunks):
+    data = stream.read(FRAMES_PERBUFF)
+    frames.append(data) # 2 bytes(16 bits) per channel
+print("Enregistrament Completat!")
+stream.stop_stream()
+stream.close()
+p.terminate()
 
 #guardar-ho en arxiu wav
 import wave
-wf = wave.open("WAV's/Camila_Cabello-Havana.wav", 'wb')
+wf = wave.open('recorded_audio.wav', 'wb')
 wf.setnchannels(CHANNELS)
 wf.setsampwidth(p.get_sample_size(FORMAT))
 wf.setframerate(FRAME_RATE)
