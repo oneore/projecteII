@@ -15,8 +15,9 @@ for i in range(1, len(freqs)-1):
     if cont>=3:
         freq_tract=np.insert(freq_tract, 0, np.mean(nota))
         nota=buit
-
+"""
 Notes=del_reps(nota_propera(freq_tract, compara())[0])
 Freqs_notes=del_reps(nota_propera(freq_tract, compara())[1])
 print(Notes)
 print(Freqs_notes)
+"""

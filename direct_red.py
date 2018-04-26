@@ -8,7 +8,7 @@ freqs=np.array([0])
 p.get_default_input_device_info()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=2048)
 frames = []
-RECORD_SECONDS = 4
+RECORD_SECONDS = 40
 nchunks = int(RECORD_SECONDS * 44100 / 2048)
 for i in range(0, nchunks):
     try:
@@ -39,6 +39,7 @@ for i in range(0, nchunks):
         print ('La freqüència és de %f Hz.' % (thefreq))
         plt.plot(i,thefreq,"ro")
     freqs=np.insert(freqs, -1, thefreq)
+    freqs_t=np.insert(freqs, -1, (i, thefreq))
     a, b = freqs[-1], freqs[-2]
     freqs[-1], freqs[-2] = b, a
 plt.show()
