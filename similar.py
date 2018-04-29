@@ -7,6 +7,6 @@ for song in ["txt/shape_of_you.txt", "txt/new_rules.txt"]:
     full=f.read().strip().split(',')
     pvalors[minpvalue(full)]=song
 
-mini=min(pvalors.keys())
+mini=max(pvalors.keys())
 print(pvalors)
 print(pvalors[mini])
