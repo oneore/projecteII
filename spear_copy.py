@@ -39,7 +39,7 @@ plt.plot(x1, y1, 'r', x2, y2, 'g', xnew1, ynew1, 'r--', xnew2, ynew2, 'g--')
 plt.show()
 
 # Now compute correlations
-a=ssd.correlation(ynew1, ynew2)) # Computes a distance measure based on correlation between the two vectors
-b=np.correlate(ynew1, ynew2, mode='valid')) # Does a cross-correlation of same sized arrays and gives back correlation
-c=np.corrcoef(ynew1, ynew2)) # Gives back the correlation matrix for the two arrays
-d=ss.spearmanr(ynew1, ynew2)) # Gives the spearman correlation for the two arrays
+a=ssd.correlation(ynew1, ynew2) # Computes a distance measure based on correlation between the two vectors
+b=np.correlate(ynew1, ynew2, mode='valid') # Does a cross-correlation of same sized arrays and gives back correlation
+c=np.corrcoef(ynew1, ynew2) # Gives back the correlation matrix for the two arrays
+d=ss.spearmanr(ynew1, ynew2) # Gives the spearman correlation for the two arrays
