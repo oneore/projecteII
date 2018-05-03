@@ -1,6 +1,6 @@
 import pyaudio
 import numpy as np
-import wave 
+import wave
 
 p = pyaudio.PyAudio()
 
@@ -35,9 +35,9 @@ l = [] #lista con todas las frecuencias escuchadas
 for i in range(0, nchunks):
     data = stream.read(FRAMES_PERBUFF)
     frames.append(data) # 2 bytes(16 bits) per channel
-    
+
     swidth = 2
-    chunk = FRAMES_PERBUFF 
+    chunk = FRAMES_PERBUFF
     window = np.blackman(chunk)
     indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),\
                                          data))*window
@@ -88,7 +88,7 @@ for c in lista_canciones:
                 adivinanza = c[:-4]
             cancion_recortada = cancion_recortada[3:]
         record = record[3:]
-            
+        
 
 print(errorMax)
 print(adivinanza)
