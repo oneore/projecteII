@@ -56,6 +56,7 @@ for i in range(0, nchunks):
     if thefreq < 10 or thefreq > 3000:
         thefreq = 0
     l.append(thefreq)
+    print(thefreq)
 
 lista_canciones = ['Amelie_Le_moulin.txt','chopin_nocturne92.txt','mine.txt','Intouchables.txt','Deja vu, Shakira.txt','Shape of you.txt'] #nuestra lista de canciones
 adivinanza = ''
