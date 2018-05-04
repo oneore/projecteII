@@ -28,12 +28,12 @@ stream = p.open(format=FORMAT,
                 input=True,
                 frames_per_buffer=FRAMES_PERBUFF) #buffer
 frames = []
-RECORD_SECONDS = 20  #canciones duran 35s
+RECORD_SECONDS = 2  #canciones duran 35s
 nchunks = int(RECORD_SECONDS * FRAME_RATE / FRAMES_PERBUFF)
 
 l = [] #lista con todas las frecuencias escuchadas
 for i in range(0, nchunks):
-    data = stream.read(FRAMES_PERBUFF, exception_on_overflow = False)
+    data = stream.read(FRAMES_PERBUFF)
     frames.append(data) # 2 bytes(16 bits) per channel
 
     swidth = 2
