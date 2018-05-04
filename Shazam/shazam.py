@@ -21,7 +21,7 @@ p.get_default_input_device_info()
 FRAMES_PERBUFF = 2048 # number of frames per buffer   ORIGINAL: 2048
 FORMAT = pyaudio.paInt16 # 16 bit int
 CHANNELS = 1 # I guess this is for mono sounds
-FRAME_RATE = 44100 # sample rate   ORIGINAL: 44100
+FRAME_RATE = 48000 # sample rate   ORIGINAL: 44100
 stream = p.open(format=FORMAT,
                 channels=CHANNELS,
                 rate=FRAME_RATE,
