@@ -28,12 +28,12 @@ stream = p.open(format=FORMAT,
                 input=True,
                 frames_per_buffer=FRAMES_PERBUFF) #buffer
 frames = []
-RECORD_SECONDS = 15  #canciones duran 35s
+RECORD_SECONDS = 20  #canciones duran 35s
 nchunks = int(RECORD_SECONDS * FRAME_RATE / FRAMES_PERBUFF)
 
 l = [] #lista con todas las frecuencias escuchadas
 for i in range(0, nchunks):
-    data = stream.read(FRAMES_PERBUFF)
+    data = stream.read(FRAMES_PERBUFF, exception_on_overflow = False)
     frames.append(data) # 2 bytes(16 bits) per channel
 
     swidth = 2
@@ -81,14 +81,13 @@ for c in lista_canciones:
     record = l
     for i in range (0,14): #21.5 frecuencias por segundo, asi tenemos 2s de margen (3*14) antes de que empieze la cancion
         cancion_recortada = cancion
-        for z in range (0,72):    #21.5 frecuencias por segundo, asi tenemos 10s de margen (3*70) despues de que empieze la cancion
+        for z in range (0,100):    #21.5 frecuencias por segundo, asi tenemos 10s de margen (3*70) despues de que empieze la cancion
             error = er(record,cancion_recortada)
             if errorMax > error:
                 errorMax = error
                 adivinanza = c[:-4]
             cancion_recortada = cancion_recortada[3:]
         record = record[3:]
-        
 
 print(errorMax)
 print(adivinanza)
