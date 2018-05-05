@@ -17,4 +17,3 @@ def closest_node(node, nodes):
             dist = distance(node, n)
             pt = n
     return pt, dist
-    defaultHigh
