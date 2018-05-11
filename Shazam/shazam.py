@@ -1,6 +1,6 @@
 import pyaudio
 import numpy as np
-import wave
+import wave 
 
 p = pyaudio.PyAudio()
 
@@ -18,26 +18,26 @@ p.get_default_input_device_info()
  'name': u'Built-in Microph',
  'structVersion': '2L'}
 
-FRAMES_PERBUFF = 1024 # number of frames per buffer   ORIGINAL: 2048
+FRAMES_PERBUFF = 2048 # number of frames per buffer   ORIGINAL: 2048
 FORMAT = pyaudio.paInt16 # 16 bit int
 CHANNELS = 1 # I guess this is for mono sounds
-FRAME_RATE = 48000 # sample rate   ORIGINAL: 44100
+FRAME_RATE = 44100 # sample rate   ORIGINAL: 44100
 stream = p.open(format=FORMAT,
                 channels=CHANNELS,
                 rate=FRAME_RATE,
                 input=True,
                 frames_per_buffer=FRAMES_PERBUFF) #buffer
 frames = []
-RECORD_SECONDS = 2  #canciones duran 35s
+RECORD_SECONDS = 15  #canciones duran 35s
 nchunks = int(RECORD_SECONDS * FRAME_RATE / FRAMES_PERBUFF)
 
 l = [] #lista con todas las frecuencias escuchadas
 for i in range(0, nchunks):
     data = stream.read(FRAMES_PERBUFF)
     frames.append(data) # 2 bytes(16 bits) per channel
-
+    
     swidth = 2
-    chunk = FRAMES_PERBUFF
+    chunk = FRAMES_PERBUFF 
     window = np.blackman(chunk)
     indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),\
                                          data))*window
@@ -56,7 +56,6 @@ for i in range(0, nchunks):
     if thefreq < 10 or thefreq > 3000:
         thefreq = 0
     l.append(thefreq)
-    print(thefreq)
 
 lista_canciones = ['Amelie_Le_moulin.txt','chopin_nocturne92.txt','mine.txt','Intouchables.txt','Deja vu, Shakira.txt','Shape of you.txt'] #nuestra lista de canciones
 adivinanza = ''
@@ -82,13 +81,14 @@ for c in lista_canciones:
     record = l
     for i in range (0,14): #21.5 frecuencias por segundo, asi tenemos 2s de margen (3*14) antes de que empieze la cancion
         cancion_recortada = cancion
-        for z in range (0,100):    #21.5 frecuencias por segundo, asi tenemos 10s de margen (3*70) despues de que empieze la cancion
+        for z in range (0,72):    #21.5 frecuencias por segundo, asi tenemos 10s de margen (3*70) despues de que empieze la cancion
             error = er(record,cancion_recortada)
             if errorMax > error:
                 errorMax = error
                 adivinanza = c[:-4]
             cancion_recortada = cancion_recortada[3:]
         record = record[3:]
+            
 
 print(errorMax)
 print(adivinanza)
