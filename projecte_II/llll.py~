@@ -1,0 +1,3 @@
+f = open('prueba','r')
+for e in f:
+    pritn(e)

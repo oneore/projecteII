@@ -1,0 +1,9 @@
+l_canciones = [Amelie]
+
+x=0
+for e in l_canciones:
+    f = open(e, 'r')
+    x+=1
+
+    f.close()
+print(x)
