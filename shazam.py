@@ -90,6 +90,8 @@ for c in glob.glob("*.txt"):
                 adivinanza = c[:-4]
             cancion_recortada = cancion_recortada[3:]
         record = record[3:]
+#    print(c)
+#    print(errorMax)
 
 
 print(errorMax)
