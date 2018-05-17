@@ -1,9 +1,10 @@
 import pyaudio
 import numpy as np
-import wave 
+import wave
+import glob, os
 
 p = pyaudio.PyAudio()
-
+os.chdir("txt")
 p.get_default_input_device_info()
 
 {'defaultHighInputLatency': 0.01292517006802721,
@@ -35,9 +36,9 @@ l = [] #lista con todas las frecuencias escuchadas
 for i in range(0, nchunks):
     data = stream.read(FRAMES_PERBUFF)
     frames.append(data) # 2 bytes(16 bits) per channel
-    
+
     swidth = 2
-    chunk = FRAMES_PERBUFF 
+    chunk = FRAMES_PERBUFF
     window = np.blackman(chunk)
     indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),\
                                          data))*window
@@ -57,7 +58,8 @@ for i in range(0, nchunks):
         thefreq = 0
     l.append(thefreq)
 
-lista_canciones = ['Amelie_Le_moulin.txt','chopin_nocturne92.txt','mine.txt','Intouchables.txt','Deja vu, Shakira.txt','Shape of you.txt'] #nuestra lista de canciones
+
+lista_canciones = ['one_kiss.txt','Amelie_Le_moulin.txt','chopin_nocturne92.txt','mine.txt','Intouchables.txt','Deja vu, Shakira.txt','Shape of you.txt'] #nuestra lista de canciones
 adivinanza = ''
 
 def er(record, cancion):
@@ -75,7 +77,7 @@ def er(record, cancion):
     return error/suma
 
 errorMax = 1000
-for c in lista_canciones:
+for c in glob.glob("*.txt"):
     f2 = open(c,'r')
     cancion = f2.read().split('\n')[:-1]
     record = l
@@ -88,7 +90,7 @@ for c in lista_canciones:
                 adivinanza = c[:-4]
             cancion_recortada = cancion_recortada[3:]
         record = record[3:]
-            
+
 
 print(errorMax)
 print(adivinanza)

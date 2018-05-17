@@ -1,8 +1,8 @@
 from direct_red0 import *
 
-f=open("havana.txt", 'w')
+f=open("one_kiss.txt", 'w')
 for i in freqs_t:
-    f.write("%s" % i)
+    f.write("%s" % i[1])
     if i!=freqs_t[-1]:
         f.write("\n")
 
