@@ -58,41 +58,41 @@ for i in range(0, nchunks):
         thefreq = 0
     l.append(thefreq)
 
+guess = ''
+guess_song = ''
 
-lista_canciones = ['one_kiss.txt','Amelie_Le_moulin.txt','chopin_nocturne92.txt','mine.txt','Intouchables.txt','Deja vu, Shakira.txt','Shape of you.txt'] #nuestra lista de canciones
-adivinanza = ''
-
-def er(record, cancion):
-    if len(record) < len(cancion):
+def er(record, song):
+    if len(record) < len(song):
         lon = len(record)
     else:
-        lon = len(cancion)
+        lon = len(song)
 
     error = 0
-    suma = 0
+    sum = 0
     for i in range (lon):
         if record[i] != '0':
-            error += (abs(float(record[i])-float(cancion[i])))**0.5
-            suma += 1
-    return error/suma
+            error += (abs(float(record[i])-float(song[i])))**0.5
+            sum += 1
+    return error/sum
 
 errorMax = 1000
 for c in glob.glob("*.txt"):
     f2 = open(c,'r')
-    cancion = f2.read().split('\n')[:-1]
+    song = f2.read().split('\n')[:-1]
     record = l
     for i in range (0,14): #21.5 frecuencias por segundo, asi tenemos 2s de margen (3*14) antes de que empieze la cancion
-        cancion_recortada = cancion
+        cut_song = song
         for z in range (0,72):    #21.5 frecuencias por segundo, asi tenemos 10s de margen (3*70) despues de que empieze la cancion
-            error = er(record,cancion_recortada)
+            error = er(record,cut_song)
             if errorMax > error:
                 errorMax = error
-                adivinanza = c[:-4]
-            cancion_recortada = cancion_recortada[3:]
+                guess = c[:-4]
+            cut_song = cut_song[3:]
         record = record[3:]
 #    print(c)
 #    print(errorMax)
-
-
+guess=guess.split('_')
+for i in range(len(guess)):
+    guess_song+=(str(guess[i]) + ' ')
 print(errorMax)
-print(adivinanza)
+print(guess_song)
