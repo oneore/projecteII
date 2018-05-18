@@ -9,7 +9,7 @@ freqs_t=[]
 p.get_default_input_device_info()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=2048)
 frames = []
-RECORD_SECONDS = 200
+RECORD_SECONDS = 170
 nchunks = int(RECORD_SECONDS * 44100 / 2048)
 for i in range(0, nchunks):
     time=i
