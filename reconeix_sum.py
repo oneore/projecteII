@@ -74,12 +74,12 @@ def er(record, song):
             if error<3:
                 sum += 1
     return sum
-
-sumMin = 1
+sumes=[]
 for c in glob.glob("*.txt"):
     f2 = open(c,'r')
     song = f2.read().split('\n')[:-1]
     record = l
+    sumMin = 1
     for i in range (0,14): #21.5 frecuencias por segundo, asi tenemos 2s de margen (3*14) antes de que empieze la cancion
         cut_song = song
         for z in range (0,72):    #21.5 frecuencias por segundo, asi tenemos 10s de margen (3*70) despues de que empieze la cancion
@@ -89,8 +89,15 @@ for c in glob.glob("*.txt"):
                 guess = c[:-4]
             cut_song = cut_song[3:]
         record = record[3:]
-guess=guess.split('_')
+    sumes.append([sumMin, guess])
+    sumes.sort(reverse = True, key=lambda x: x[0])
+guess=sumes[0][1].split('_')
+sumMin=sumes[0][0]
+print(sumes)
 for i in range(len(guess)):
     guess_song+=(str(guess[i]) + ' ')
-print(sumMin)
-print(guess_song)
+if sumes[1][0]/sumes[0][0]<0.6:
+    print(sumMin)
+    print(guess_song)
+else:
+    print("No s'ha pogut trobar la cançó")
