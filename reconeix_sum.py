@@ -43,6 +43,7 @@ for i in range(0, nchunks):
         thefreq = (which+x1)*FRAME_RATE/chunk
     else:
         thefreq = which*RATE/chunk
+        print(thefreq)
     if thefreq < 10 or thefreq > 3000:
         thefreq = 0
     l.append(thefreq)
