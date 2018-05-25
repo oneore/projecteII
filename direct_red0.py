@@ -1,7 +1,6 @@
 import pyaudio
 import numpy as np
 import wave
-import matplotlib.pyplot as plt
 
 p = pyaudio.PyAudio()
 freqs=[]
@@ -9,7 +8,7 @@ freqs_t=[]
 p.get_default_input_device_info()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=2048)
 frames = []
-RECORD_SECONDS = 170
+RECORD_SECONDS = 50
 nchunks = int(RECORD_SECONDS * 44100 / 2048)
 for i in range(0, nchunks):
     time=i
@@ -40,7 +39,5 @@ for i in range(0, nchunks):
     if 100<=thefreq<=10000:
         #print ('La freqüència és de %f Hz.' % (thefreq))
         print (thefreq)
-        #plt.plot(i,thefreq,"ro")
         freqs.append(thefreq)
         freqs_t.append([time, thefreq])
-#plt.show()

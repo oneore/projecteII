@@ -43,7 +43,6 @@ for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
         thefreq = (which+x1)*RATE/chunk
     else:
         thefreq = which*RATE/chunk
-    print(thefreq)
     l.append(thefreq)
 
 stream.stop_stream()
