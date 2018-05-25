@@ -7,18 +7,6 @@ p = pyaudio.PyAudio()
 os.chdir("txt")
 p.get_default_input_device_info()
 
-{'defaultHighInputLatency': 0.01292517006802721,
- 'defaultHighOutputLatency': 0.1,
- 'defaultLowInputLatency': 0.002766439909297052,
- 'defaultLowOutputLatency': 0.01,
- 'defaultSampleRate': 44100.0,
- 'hostApi': '0L',
- 'index': '0L',
- 'maxInputChannels': '2L',
- 'maxOutputChannels': '0L',
- 'name': u'Built-in Microph',
- 'structVersion': '2L'}
-
 FRAMES_PERBUFF = 8192 # number of frames per buffer   ORIGINAL: 2048
 FORMAT = pyaudio.paInt16 # 16 bit int
 CHANNELS = 1 # I guess this is for mono sounds
@@ -57,6 +45,10 @@ for i in range(0, nchunks):
     if thefreq < 10 or thefreq > 3000:
         thefreq = 0
     l.append(thefreq)
+
+stream.stop_stream()
+stream.close()
+p.terminate()
 
 guess = ''
 guess_song = ''
