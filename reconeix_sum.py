@@ -16,6 +16,7 @@ stream = p.open(format=FORMAT,
                 rate=FRAME_RATE,
                 input=True,
                 frames_per_buffer=FRAMES_PERBUFF) #buffer
+print("hola")
 frames = []
 RECORD_SECONDS = 15  #canciones duran 35s
 nchunks = int(RECORD_SECONDS * FRAME_RATE / FRAMES_PERBUFF)
