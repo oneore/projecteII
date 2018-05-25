@@ -1,9 +1,6 @@
 import time
 
-import Adafruit_CharLCD as lcd
-
-def clear_screen():
-    lcd.clear()
+import Adafruit_CharLCD as LCD
 
 def missatge(missatge):
     # Raspberry Pi pin configuration:
@@ -25,4 +22,7 @@ def missatge(missatge):
 
     lcd.message(missatge)
     time.sleep(10.0)
+    lcd.clear()
+
+def clear_screen():
     lcd.clear()
