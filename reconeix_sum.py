@@ -100,4 +100,4 @@ if sumes[1][0]/sumes[0][0]<0.8 and sumes[0][0]-sumes[1][0]>5:
     missatge(guess_song)
 else:
     print("No s'ha pogut trobar la canco")
-    missatge("No s'ha pogut\ntrobar la cançó")
+    missatge("No s'ha pogut\n      trobar)
