@@ -86,7 +86,7 @@ def lcd_byte(bits, mode):
       GPIO.output(LCD_D7, True)
 
   # Toggle 'Enable' pin
-  lcd_toggle_enable()
+    lcd_toggle_enable()
 
 def lcd_toggle_enable():
     # Toggle enable
