@@ -41,11 +41,12 @@ for i in range(0, nchunks):
         x1 = (y2 - y0) * .5 / (2 * y1 - y2 - y0)
         # find the frequency and output it
         thefreq = (which+x1)*FRAME_RATE/chunk
+
     else:
         thefreq = which*RATE/chunk
-        print(thefreq)
     if thefreq < 10 or thefreq > 3000:
         thefreq = 0
+    print(thefreq)
     l.append(thefreq)
 
 stream.stop_stream()
