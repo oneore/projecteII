@@ -44,8 +44,6 @@ for i in range(0, nchunks):
 
     else:
         thefreq = which*RATE/chunk
-    if thefreq < 10 or thefreq > 3000:
-        thefreq = 0
     print(thefreq)
     l.append(thefreq)
 
