@@ -21,7 +21,6 @@ def missatge(missatge):
                                lcd_columns, lcd_rows, lcd_backlight)
 
     lcd.message(missatge)
-    time.sleep(10.0)
 
 def clear_screen():
     # Raspberry Pi pin configuration:
