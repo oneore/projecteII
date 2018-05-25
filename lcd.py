@@ -12,3 +12,5 @@ while True:
   # Send some test
   lcd.string("Rasbperry Pi",LCD_LINE_1)
   lcd.string("16x2 LCD Test",LCD_LINE_2)
+
+  time.sleep(6) # 3 second delay
