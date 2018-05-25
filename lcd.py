@@ -5,7 +5,7 @@ import Adafruit_CharLCD as LCD
 def clear_screen():
     lcd.clear()
 
-def lcd(missatge):
+def missatge(missatge):
     # Raspberry Pi pin configuration:
     lcd_rs        = 25
     lcd_en        = 24

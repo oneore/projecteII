@@ -93,7 +93,7 @@ for i in range(len(guess)):
 if sumes[1][0]/sumes[0][0]<0.8 or sumes[0][0]-sumes[1][0]>5:
     print(sumMin)
     print(guess_song)
-    lcd(guess_song)
+    missatge(guess_song)
 else:
     print("No s'ha pogut trobar la canco")
-    lcd("No s'ha pogut\ntrobar la canco")
+    missatge("No s'ha pogut\ntrobar la canco")
