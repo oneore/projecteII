@@ -1,6 +1,6 @@
 import time
 
-import Adafruit_CharLCD as LCD
+import Adafruit_CharLCD as lcd
 
 def clear_screen():
     lcd.clear()
