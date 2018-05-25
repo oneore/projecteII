@@ -12,12 +12,7 @@ RECORD_SECONDS = 50
 nchunks = int(RECORD_SECONDS * 44100 / 2048)
 for i in range(0, nchunks):
     time=i
-    try:
-        data = stream.read(2048)
-    except IOError as ex: #error que ens dona (Input Overflowed)
-        if ex[1] != pyaudio.paInputOverflowed:
-            raise
-        data = '\x00' * 2048
+    data = stream.read(2048)
     frames.append(data)
     swidth = 2
     chunk = 2048
