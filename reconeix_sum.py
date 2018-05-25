@@ -19,7 +19,7 @@ p.get_default_input_device_info()
  'name': u'Built-in Microph',
  'structVersion': '2L'}
 
-FRAMES_PERBUFF = 2048 # number of frames per buffer   ORIGINAL: 2048
+FRAMES_PERBUFF = 8192 # number of frames per buffer   ORIGINAL: 2048
 FORMAT = pyaudio.paInt16 # 16 bit int
 CHANNELS = 1 # I guess this is for mono sounds
 FRAME_RATE = 44100 # sample rate   ORIGINAL: 44100
@@ -96,7 +96,7 @@ sumMin=sumes[0][0]
 print(sumes)
 for i in range(len(guess)):
     guess_song+=(str(guess[i]) + ' ')
-if sumes[1][0]/sumes[0][0]<0.6:
+if sumes[1][0]/sumes[0][0]<0.8 or sumes[0][0]-sumes[1][0]>5:
     print(sumMin)
     print(guess_song)
 else:
