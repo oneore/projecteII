@@ -2,6 +2,7 @@ import pyaudio
 import numpy as np
 import wave
 import glob, os
+from lcd import *
 
 p = pyaudio.PyAudio()
 os.chdir("txt")
@@ -90,5 +91,7 @@ for i in range(len(guess)):
 if sumes[1][0]/sumes[0][0]<0.8 or sumes[0][0]-sumes[1][0]>5:
     print(sumMin)
     print(guess_song)
+    lcd(guess_song)
 else:
     print("No s'ha pogut trobar la cançó")
+    lcd("No s'ha pogut\ntrobar la cançó")
