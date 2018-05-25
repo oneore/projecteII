@@ -5,7 +5,7 @@ import glob, os
 
 p = pyaudio.PyAudio()
 os.chdir("txt")
-p.get_default_input_device_info()
+#p.get_default_input_device_info()
 
 FRAMES_PERBUFF = 8192 # number of frames per buffer   ORIGINAL: 2048
 FORMAT = pyaudio.paInt16 # 16 bit int
@@ -41,7 +41,6 @@ for i in range(0, nchunks):
         x1 = (y2 - y0) * .5 / (2 * y1 - y2 - y0)
         # find the frequency and output it
         thefreq = (which+x1)*FRAME_RATE/chunk
-
     else:
         thefreq = which*RATE/chunk
     print(thefreq)
