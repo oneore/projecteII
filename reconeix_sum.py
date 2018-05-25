@@ -5,29 +5,29 @@ import glob, os
 
 p = pyaudio.PyAudio()
 os.chdir("txt")
-#p.get_default_input_device_info()
 
-FRAMES_PERBUFF = 8192 # number of frames per buffer   ORIGINAL: 2048
-FORMAT = pyaudio.paInt16 # 16 bit int
-CHANNELS = 1 # I guess this is for mono sounds
-FRAME_RATE = 44100 # sample rate   ORIGINAL: 44100
+CHUNK = 8192
+FORMAT = pyaudio.paInt16
+CHANNELS = 1
+RATE = 44100
+RECORD_SECONDS = 15
+WAVE_OUTPUT_FILENAME = "output.wav"
+
+p = pyaudio.PyAudio()
+
 stream = p.open(format=FORMAT,
                 channels=CHANNELS,
-                rate=FRAME_RATE,
+                rate=RATE,
                 input=True,
-                frames_per_buffer=FRAMES_PERBUFF) #buffer
-print("hola")
+                frames_per_buffer=CHUNK)
 frames = []
-RECORD_SECONDS = 15  #canciones duran 35s
-nchunks = int(RECORD_SECONDS * FRAME_RATE / FRAMES_PERBUFF)
-
 l = [] #lista con todas las frecuencias escuchadas
-for i in range(0, nchunks):
-    data = stream.read(FRAMES_PERBUFF)
-    frames.append(data) # 2 bytes(16 bits) per channel
 
+for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+    data = stream.read(CHUNK)
+    frames.append(data)
     swidth = 2
-    chunk = FRAMES_PERBUFF
+    chunk = CHUNK
     window = np.blackman(chunk)
     indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),\
                                          data))*window
@@ -40,7 +40,7 @@ for i in range(0, nchunks):
         y0,y1,y2 = np.log(fftData[which-1:which+2:])
         x1 = (y2 - y0) * .5 / (2 * y1 - y2 - y0)
         # find the frequency and output it
-        thefreq = (which+x1)*FRAME_RATE/chunk
+        thefreq = (which+x1)*RATE/chunk
     else:
         thefreq = which*RATE/chunk
     print(thefreq)
