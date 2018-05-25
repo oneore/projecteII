@@ -90,6 +90,10 @@ sumMin=sumes[0][0]
 print(sumes)
 for i in range(len(guess)):
     guess_song+=(str(guess[i]) + ' ')
+    if len(guess_song)>15:
+        guess_song1=guess_song[0:15]
+        guess_song2=guess_song[15:]
+        guess_song=guess_song1 + "\n" + guess_song2
 if sumes[1][0]/sumes[0][0]<0.8 or sumes[0][0]-sumes[1][0]>5:
     print(sumMin)
     print(guess_song)

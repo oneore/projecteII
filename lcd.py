@@ -22,7 +22,6 @@ def missatge(missatge):
 
     lcd.message(missatge)
     time.sleep(10.0)
-    lcd.clear()
 
 def clear_screen():
     # Raspberry Pi pin configuration:
