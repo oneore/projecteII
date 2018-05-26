@@ -7,6 +7,9 @@ from lcd import *
 p = pyaudio.PyAudio()
 os.chdir("txt")
 
+clear_screen()
+missatge("Escoltant...")
+
 CHUNK = 8192
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
