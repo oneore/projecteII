@@ -53,6 +53,9 @@ stream.stop_stream()
 stream.close()
 p.terminate()
 
+clear_screen()
+missatge("Analitzant...")
+
 guess = ''
 guess_song = ''
 
