@@ -85,8 +85,11 @@ for c in glob.glob("*.txt"):
             z_a=z
             guess = c[:-4]
             cut_song_def=cut_song
-    sumes.append([sumMin, guess, z_a, cut_song_def])
+    sumes.append([sumMin, guess])
+    sumes2.append([sumMin, guess, z_a, cut_song_def])
     sumes.sort(reverse = True, key=lambda x: x[0])
+    sumes2.sort(reverse = True, key=lambda x: x[0])
+print(sumes)
 guess=sumes[0][1].split('_')
 sumMin=sumes[0][0]
 for i in range(len(guess)):
@@ -104,9 +107,9 @@ else:
     print("No s'ha pogut trobar")
     missatge(" No s'ha pogut\n     trobar")
 
-os.chdir("/Users/joanorellanarios/Desktop/projecteII")
-
 """
+
+os.chdir("/Users/joanorellanarios/Desktop/projecteII")
 
 f1=open("Comprovacio.txt", 'w')
 f1.write("%s" % sumes[0][1])
