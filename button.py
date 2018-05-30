@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
 import time
 import os
-from lcd import *
 
 GPIO.setmode(GPIO.BCM)
 
