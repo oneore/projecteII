@@ -1,6 +1,6 @@
 from direct_red0 import *
 
-f=open("txt/Shape_Of_You_-_Ed_Sheeran.txt", 'w')
+f=open("txt/Le_Moulin_-_Yann_Tiersen_(Amelie).txt", 'w')
 for i in freqs_t:
     f.write("%s" % i[1])
     if i!=freqs_t[-1]:

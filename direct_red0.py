@@ -8,14 +8,14 @@ freqs_t=[]
 p.get_default_input_device_info()
 stream = p.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=8192)
 frames = []
-RECORD_SECONDS = 230
-nchunks = int(RECORD_SECONDS * 44100 / 2048)
+RECORD_SECONDS = 60
+nchunks = int(RECORD_SECONDS * 44100 / 8192)
 for i in range(0, nchunks):
     time=i
-    data = stream.read(2048)
+    data = stream.read(8192)
     frames.append(data)
     swidth = 2
-    chunk = 2048
+    chunk = 8192
     window = np.blackman(chunk)
     indata = np.array(wave.struct.unpack("%dh"%(len(data)/swidth),\
                                          data))*window
