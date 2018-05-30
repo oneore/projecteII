@@ -71,6 +71,7 @@ def er(record, song):
             sum += 1
     return sum
 sumes=[]
+sumes2=[]
 cuts=[]
 for c in glob.glob("*.txt"):
     f3 = open(c,'r')
