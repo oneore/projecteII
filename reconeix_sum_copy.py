@@ -108,6 +108,7 @@ else:
     print("No s'ha pogut trobar")
     missatge(" No s'ha pogut\n     trobar")
 
+"""
 os.chdir("/Users/joanorellanarios/Desktop/projecteII")
 
 f1=open("Comprovacio.txt", 'w')
@@ -141,4 +142,4 @@ for i in range(len(sumes[1][3])):
     if i!=sumes[1][3][-1]:
         f2.write("\n")
 f2.close()
-
+"""
