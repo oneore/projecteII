@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import os
+from lcd import *
 
 GPIO.setmode(GPIO.BCM)
 
@@ -13,4 +14,4 @@ while True:
         os.system('python reconeix_sum_copy.py')
     input_state2 = GPIO.input(24)
     if input_state2 == False:
-        os.system('python clear.py')
+        clear_screen()
