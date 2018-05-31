@@ -1,6 +1,6 @@
 from direct_red0 import *
 
-f=open("txt/Welcome[...]_-_Guns_'n'_Roses.txt", 'w')
+f=open("txt/Clair_De_Lune_-_Claude_Debussy.txt", 'w')
 for i in freqs_t:
     f.write("%s" % i[1])
     if i!=freqs_t[-1]:

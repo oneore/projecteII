@@ -1,0 +1,10 @@
+"txt/Clair_De_Lune_-_Claude_Debussy.txt" - 270
+"txt/One_Kiss_-_Dua_Lipa.txt" - 210
+"txt/Welcome[...]_-_Guns_'n'_Roses.txt" - 270
+"txt/Pancake_-_Jaded.txt" - 200
+"txt/Back_To_Black_-_Amy_Winehouse.txt" - 230
+"txt/Red_Red_Wine_-_UB40.txt" - 180
+"txt/Let_It_Loose_-_Rolling_Stones.txt" - 310
+"txt/Boogie_Wonderland_-_EW&F.txt" - 280
+"txt/Paranoid_-_Black_Sabbath.txt" - 160
+"txt/Safe_&_Sound_-_Capital_Cities.txt" - 190
