@@ -88,6 +88,7 @@ for c in glob.glob("*.txt"):
     sumes.sort(reverse = True, key=lambda x: x[0])
 guess=sumes[0][1].split('_')
 sumMin=sumes[0][0]
+print(sumes)
 for i in range(len(guess)):
     guess_song+=(str(guess[i]) + ' ')
     if len(guess_song)>15:
