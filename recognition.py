@@ -101,7 +101,7 @@ clear_screen()
 if sumes[1][0]/sumes[0][0]<0.8 and sumes[0][0]-sumes[1][0]>5:
     print(sumMin)
     print(guess_song)
-    print("eficiencia=" + str(sumMin/len(l))+"%")
+    print("eficiencia=" + str(float(sumMin/len(l)))+"%")
     missatge(guess_song3)
 else:
     print("No s'ha pogut trobar")
