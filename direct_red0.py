@@ -31,8 +31,8 @@ for i in range(0, nchunks):
         thefreq = (which+x1)*44100/chunk
     else:
         thefreq = which*44100/chunk
-    if 100<=thefreq<=10000:
-        #print ('La freqüència és de %f Hz.' % (thefreq))
-        print (thefreq)
-        freqs.append(thefreq)
-        freqs_t.append([time, thefreq])
+    if thefreq<10.0 or thefreq>5000.0:
+        thefreq=0
+    print (thefreq)
+    freqs.append(thefreq)
+    freqs_t.append([time, thefreq])
