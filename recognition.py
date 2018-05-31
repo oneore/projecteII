@@ -71,10 +71,9 @@ def er(record, song):
     return sum
 sumes=[]
 sumes2=[]
-cuts=[]
 for c in glob.glob("*.txt"):
-    f3 = open(c,'r')
-    song = f3.read().split('\n')[:-1]
+    f = open(c,'r')
+    song = f.read().split('\n')[:-1]
     record = l
     sumMin = 1
     for z in range (0,len(song)-len(record)):
