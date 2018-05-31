@@ -98,7 +98,7 @@ for i in range(len(guess)):
     else:
         guess_song3=guess_song
 clear_screen()
-if sumes[1][0]/sumes[0][0]<0.8 or sumes[0][0]-sumes[1][0]>10:
+if sumes[1][0]/sumes[0][0]<0.8 and sumes[0][0]-sumes[1][0]>10:
     print(sumMin)
     print(guess_song)
     missatge(guess_song3)
