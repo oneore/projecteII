@@ -1,6 +1,6 @@
 from direct_red0 import *
 
-f=open("txt/Boogie_Wonderland_-_EW&F.txt", 'w')
+f=open("txt/Red_Red_Wine_-_UB40.txt", 'w')
 for i in freqs_t:
     f.write("%s" % i[1])
     if i!=freqs_t[-1]:
