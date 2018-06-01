@@ -66,7 +66,7 @@ def er(record, song):
     sum=0
     for i in range(0,len(record)):
         error = (abs(float(record[i])-float(song[i])))**0.5
-        if error<3.0:
+        if 0.0<error<3.0:
             sum += 1
     return sum
 sumes=[]
